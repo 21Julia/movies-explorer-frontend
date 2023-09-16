@@ -14,7 +14,10 @@ function Techs() {
           <p className="techs__subtitle">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
           <ul className="techs__list">
             {technologies.map((technology, i) => (
-              <TechsItem item={technology} />
+              <TechsItem
+                item={technology}
+                key={i}
+              />
             ))}
           </ul>
         </div>

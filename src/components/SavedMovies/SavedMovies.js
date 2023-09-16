@@ -7,26 +7,29 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 // import Preloader from '../Preloader/Preloader';
 
-function SavedMovies({ loggedIn }) {
+function SavedMovies({ loggedIn, onBurgerButton }) {
   // Заглушки для тестирования
   const [isActiveSwitch, setIsActiveSwitch] = React.useState(false);
 
   return (
     <>
-      <Header loggedIn={loggedIn} />
-      {/* <Preloader /> */}
-      <div className="saved-movies">
+      <Header
+        loggedIn={loggedIn}
+        onBurgerButton={onBurgerButton}
+      />
+      <main className="saved-movies">
         <SearchForm
           isActiveSwitch={isActiveSwitch}
           onSwitchButton={setIsActiveSwitch}
         />
+        {/* <Preloader /> */}
         <MoviesCardList
           containerClass="cards_type_saved"
           moviesList={savedMovies}
           cardButtonClass="card__delete-button"
           buttonAriaLabel="Удалить"
         />
-      </div>
+      </main>
       <Footer />
     </>
   );

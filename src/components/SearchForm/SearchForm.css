@@ -47,7 +47,11 @@
 }
 
 .search-form__input:focus {
-  outline: none;
+  font-weight: 500;
+  font-size: 18.25px;
+  border-radius: 3px;
+  outline: #3456F3 inset thin;
+  outline-offset: 4px;
 }
 
 .search-form__search-button {

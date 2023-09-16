@@ -21,7 +21,7 @@ function AuthForm({ title, children, inputClassMargin, inputClassActive, inputEr
             </div>
             <div className="auth-form__input-field">
               <label htmlFor="password-input" className="auth-form__input-label">Пароль</label>
-              <input id="password-input" type="password" className={`auth-form__input ${inputClassMargin} ${inputClassActive} auth-form__input_type_error auth-form__input_type_password`} name="password" placeholder="Пароль" minLength="8" autoComplete="off" required />
+              <input id="password-input" type="password" className={`auth-form__input ${inputClassMargin} ${inputClassActive} auth-form__input_type_error auth-form__input_type_password`} name="password" placeholder="Пароль" minLength="8" maxLength="40" autoComplete="off" required />
               <span className="password-input-error auth-form__input-error auth-form__input-error_active">Что-то пошло не так...</span>
             </div>
             <div className="auth-form__save-container">

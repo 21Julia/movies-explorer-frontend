@@ -15,6 +15,12 @@
   background-color: #202020;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .button {
   transition: opacity 0.3s linear;
 }

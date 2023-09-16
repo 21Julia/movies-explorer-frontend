@@ -40,7 +40,7 @@
 
 @media all and (max-width: 768px) {
   .promo__title {
-    margin: 318px auto 440px;
+    margin: 316px auto 440px;
     max-width: calc(100% - 88px);
     text-align: center;
   }
@@ -71,7 +71,7 @@
     line-height: 39px;
     letter-spacing: -1.24px;
     max-width: calc(100% - 20px);
-    margin: 202px auto 330px;
+    margin: 199px auto 330px;
   }
 
   .promo__picture {

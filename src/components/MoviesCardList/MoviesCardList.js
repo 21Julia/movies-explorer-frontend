@@ -5,18 +5,18 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 function MoviesCardList({ containerClass, moviesList, cardButtonClass, buttonAriaLabel }) {
 
   return (
-    <div className={`cards ${containerClass}`}>
+    <section className={`cards ${containerClass}`}>
       <ul className="cards__list">
-        {moviesList.map((movie, index) => (
+        {moviesList.map((movie, i) => (
           <MoviesCard
-            key={index}
+            key={i}
             movie={movie}
             cardButtonClass={cardButtonClass}
             buttonAriaLabel={buttonAriaLabel}
           />
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

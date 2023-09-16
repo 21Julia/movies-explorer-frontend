@@ -1,5 +1,5 @@
 .footer {
-  max-width: calc(100% - 140px);
+  width: calc(100% - 140px);
   margin: 0 auto;
 }
 
@@ -51,13 +51,13 @@
 
 @media all and (max-width: 768px) {
   .footer {
-    max-width: calc(100% - 60px);
+    width: calc(100% - 60px);
   }
 }
 
 @media all and (max-width: 450px) {
   .footer {
-    max-width: calc(100% - 20px);
+    width: calc(100% - 20px);
   }
 
   .footer__text {

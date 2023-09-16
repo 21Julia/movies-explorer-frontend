@@ -10,11 +10,11 @@ function PageNotFound() {
   }
 
   return (
-    <div className="not-found">
+    <main className="not-found">
       <h1 className="not-found__title">404</h1>
       <h2 className="not-found__subtitle">Страница не найдена</h2>
-      <button className="not-found__button link" onClick={goBack}>Назад</button>
-    </div>
+      <button type="button" className="not-found__button link" onClick={goBack}>Назад</button>
+    </main>
   );
 };
 

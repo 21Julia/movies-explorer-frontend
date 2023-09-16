@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
@@ -16,6 +16,21 @@ function App() {
   const [isLiked, setIsLiked] = React.useState(true);
   const [isNavigationPopupOpen, setIsNavigationPopupOpen] = React.useState(false);
 
+  const navigate = useNavigate();
+
+  function signOut() {
+    setLoggedIn(false);
+    navigate('/', {replace: true});
+  };
+
+  function openMenu() {
+    setIsNavigationPopupOpen(true);
+  };
+
+  function closePopup() {
+    setIsNavigationPopupOpen(false);
+  };
+
   return (
     <>
       <Routes>
@@ -23,14 +38,14 @@ function App() {
           path="/"
           element={<Main
             loggedIn={loggedIn}
-            onBurgerButton={setIsNavigationPopupOpen}
+            onBurgerButton={openMenu}
           />}
         />
         <Route
           path="/movies"
           element={<Movies
             loggedIn={loggedIn}
-            onBurgerButton={setIsNavigationPopupOpen}
+            onBurgerButton={openMenu}
             isLiked={isLiked}
             onLikeButton={setIsLiked}
           />}
@@ -39,13 +54,15 @@ function App() {
           path="/saved-movies"
           element={<SavedMovies
             loggedIn={loggedIn}
-            onBurgerButton={setIsNavigationPopupOpen}
+            onBurgerButton={openMenu}
           />}
         />
         <Route
           path="/profile"
           element={<Profile
+            onBurgerButton={openMenu}
             loggedIn={loggedIn}
+            onSignOut={signOut}
           />}
         />
         <Route path="/signup" element={<Register />} />
@@ -54,6 +71,7 @@ function App() {
       </Routes>
       <PopupWithNavigation
         isOpen={isNavigationPopupOpen}
+        onClose={closePopup}
         loggedIn={loggedIn}
       />
     </>

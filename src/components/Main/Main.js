@@ -8,11 +8,12 @@ import Portfolio from './Portfolio/Portfolio';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
-function Main({ loggedIn }) {
+function Main({ loggedIn, onBurgerButton }) {
   return (
     <div className='main'>
       <Header
         loggedIn={loggedIn}
+        onBurgerButton={onBurgerButton}
         headerColorClass="header_color_blue"
         iconColorClass="navigation__profile-icon_color_blue"
       />

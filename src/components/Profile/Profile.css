@@ -1,4 +1,8 @@
 .profile {
+  min-width: 100%;
+}
+
+.profile__section {
   margin: 0 auto;
   max-width: 410px;
   display: flex;
@@ -55,7 +59,11 @@
 }
 
 .profile__input:focus {
-  outline: none;
+  font-weight: 500;
+  font-size: 11.25px;
+  border-radius: 3px;
+  outline: #3456F3 inset thin;
+  outline-offset: 4px;
 }
 
 .profile__line {
@@ -166,7 +174,7 @@
 }
 
 @media all and (max-width: 480px) {
-  .profile {
+  .profile__section {
     max-width: 260px;
   }
 

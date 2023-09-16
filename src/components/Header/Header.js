@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 import Navigation from './Navigation/Navigation';
 
-function Header({ loggedIn, headerColorClass, iconColorClass }) {
+function Header({ loggedIn, headerColorClass, iconColorClass, onBurgerButton }) {
   return (
     <header className={`header ${headerColorClass}`}>
       <nav className="header__navigation">
@@ -11,7 +11,7 @@ function Header({ loggedIn, headerColorClass, iconColorClass }) {
         {loggedIn ?
           <div className="header__navigation-authorized">
             <Navigation iconColorClass={iconColorClass} />
-            <button type="button" className="header__burger-menu button" aria-label="Открыть меню"></button>
+            <button type="button" className="header__burger-menu button" onClick={onBurgerButton} aria-label="Открыть меню"></button>
           </div> :
           <div className="header__navigation-unauthorized">
             <NavLink to="/signup" className="header__navigation-registration link">Регистрация</NavLink>

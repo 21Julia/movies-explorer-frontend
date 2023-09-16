@@ -5,14 +5,16 @@ import { inputMargin } from '../../utils/constants';
 
 function Login() {
   return (
-    <AuthForm
-      title="Рады видеть!"
-      inputClassMargin={inputMargin}
-      buttonText="Войти"
-      text="Ещё не зарегистрированы?"
-      endpoint="/signup"
-      textLink="Регистрация"
-    />
+    <main>
+      <AuthForm
+        title="Рады видеть!"
+        inputClassMargin={inputMargin}
+        buttonText="Войти"
+        text="Ещё не зарегистрированы?"
+        endpoint="/signup"
+        textLink="Регистрация"
+      />
+    </main>
   );
 };
 

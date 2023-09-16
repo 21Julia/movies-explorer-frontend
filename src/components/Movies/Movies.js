@@ -8,7 +8,7 @@ import MoviesAddButton from './MoviesAddButton/MoviesAddButton';
 import Footer from '../Footer/Footer';
 // import Preloader from '../Preloader/Preloader';
 
-function Movies({ loggedIn, isLiked }) {
+function Movies({ onBurgerButton, loggedIn, isLiked }) {
   // Заглушки для тестирования
   const [isActiveSwitch, setIsActiveSwitch] = React.useState(true);
 
@@ -16,20 +16,23 @@ function Movies({ loggedIn, isLiked }) {
 
   return (
     <>
-      <Header loggedIn={loggedIn} />
-      {/* <Preloader /> */}
-      <div className="movies">
+      <Header
+        loggedIn={loggedIn}
+        onBurgerButton={onBurgerButton}
+      />
+      <main className="movies">
         <SearchForm
           isActiveSwitch={isActiveSwitch}
           onSwitchButton={setIsActiveSwitch}
         />
+        {/* <Preloader /> */}
         <MoviesCardList
           moviesList={initialMovies}
           cardButtonClass={cardLikeButtonClassName}
           buttonAriaLabel="Понравилось"
         />
         <MoviesAddButton />
-      </div>
+      </main>
       <Footer />
     </>
   );

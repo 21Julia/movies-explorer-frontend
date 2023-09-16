@@ -25,11 +25,13 @@
 }
 
 .techs__list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 90px);
+  grid-auto-rows: auto;
   gap: 10px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .techs__subtitle {
@@ -58,6 +60,10 @@
     font-size: 12px;
     line-height: 18px;
     letter-spacing: -0.48px;
+  }
+
+  .techs__list {
+    grid-template-columns: repeat(auto-fit, 84px);
   }
 }
 

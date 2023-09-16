@@ -4,9 +4,9 @@ import './TransitionButton.css';
 
 function TransitionButton({ text, endpoint, textLink }) {
   return (
-    <div className="transition__button">
-      <p className="transition__text">{text}</p>
-      <Link to={endpoint} className="transition__link-button link">{textLink}</Link>
+    <div className="transition-button">
+      <p className="transition-button__text">{text}</p>
+      <Link to={endpoint} className="transition-button__link link">{textLink}</Link>
     </div>
   );
 };
