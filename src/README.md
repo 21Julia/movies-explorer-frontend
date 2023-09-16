@@ -35,6 +35,9 @@ ___
 
 [https://github.com/21Julia/movies-explorer-frontend]
 
-## Название макета
+## Название и ссылка на макет
 
 **dark-1**
+
+[https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-6015&mode=design&t=aGsr5xkMVnNbOWEk-0]
+
