@@ -1,0 +1,40 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+.page {
+  max-width: 1280px;
+  min-width: 320px;
+  margin: 0 auto;
+  font-family: 'Inter', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  background-color: #202020;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  transition: opacity 0.3s linear;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.link {
+  transition: opacity 0.4s linear;
+}
+
+.link:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}

@@ -1,0 +1,22 @@
+.movies__add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 36px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.52px;
+  color: #fff;
+  background-color: #2F2F2F;
+  border-radius: 6px;
+  border: 0;
+  padding: 0;
+  margin: 60px auto 159px;
+}
+
+@media all and (max-width: 410px) {
+  .movies__add-button {
+    min-width: 240px;
+  }
+}

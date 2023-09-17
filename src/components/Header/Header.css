@@ -1,0 +1,131 @@
+.header {
+  min-width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Цвет фона хедера для Main-страницы */
+.header_color_blue {
+  background-color: #073042;
+}
+
+.header__navigation {
+  min-width: calc(100% - 140px);
+  margin: 18px auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  margin-right: 45px;
+  display: flex;
+  background: url(../../images/logo.svg) no-repeat;
+  background-size: 38px;
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.header__navigation-authorized {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__burger-menu {
+  background: url(../../images/burger-menu.svg) center no-repeat;
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  padding: 0;
+  display: none;
+}
+
+.header__navigation-unauthorized {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__navigation-registration {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.header__navigation-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3DDC84;
+  border-radius: 3px;
+  min-width: 76px;
+  min-height: 32px;
+  color: #000;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+}
+
+@media all and (max-width: 768px) {
+  .header__navigation {
+    min-width: calc(100% - 60px);
+    margin-top: 0;
+  }
+
+  .header__logo {
+    margin-top: 18px;
+  }
+
+  .header__navigation-authorized {
+    justify-content: end;
+  }
+
+  .header__burger-menu {
+    display: flex;
+    margin-top: 15px;
+  }
+
+  .header__navigation-unauthorized {
+    align-items: baseline;
+  }
+
+  .header__navigation-login {
+    margin-top: 21px;
+  }
+}
+
+@media all and (max-width: 430px) {
+  .header__navigation {
+    margin: 0;
+    width: 100%;
+    padding-left: 14px;
+  }
+
+  .header__burger-menu {
+    background-size: 34px 42px;
+    margin-right: 12px;
+    margin-top: 15px;
+  }
+
+  .header__navigation-unauthorized {
+    gap: 14px;
+    margin-right: 14px;
+  }
+
+  .header__navigation-registration {
+    font-size: 10px;
+  }
+
+  .header__navigation-login {
+    margin-top: 24px;
+    min-width: 54px;
+    min-height: 26px;
+    font-size: 10px;
+  }
+}

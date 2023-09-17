@@ -1,0 +1,40 @@
+.transition-button {
+  margin-top: 16px;
+  margin-bottom: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b8b8b;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+}
+
+.transition-button__text {
+  margin: 0;
+}
+
+.transition-button__link {
+  margin-left: 6px;
+  text-decoration: none;
+  color: #4285F4;
+}
+
+@media all and (max-width: 850px) {
+  .transition-button {
+    margin-bottom: 232px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .transition-button {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    line-height: 14.52px;
+  }
+
+  .transition-button__link {
+    margin-left: 7px;
+  }
+}
