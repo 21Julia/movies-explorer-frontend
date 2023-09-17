@@ -18,6 +18,9 @@ const errorClass = "auth-form__input_type_error";
 const inputActive = "auth-form__input_color_b";
 const inputMargin = "auth-form__input_margin_l";
 
+const MAIN_API_ADDRESS = 'https://api.jkmovies-explorer.nomoredomainsicu.ru';
+const MOVIES_API_ADDRESS = 'https://api.nomoreparties.co/beatfilm-movies';
+
 const technologies = [
   "HTML", "CSS", "JS", "React", "Git", "Express.js", "mongoDB"
 ];
@@ -123,4 +126,4 @@ const savedMovies = [
   }
 ];
 
-export {errorClass, inputActive, inputMargin, technologies, initialMovies, savedMovies };
+export {errorClass, inputActive, inputMargin, technologies, initialMovies, savedMovies, MAIN_API_ADDRESS, MOVIES_API_ADDRESS };
