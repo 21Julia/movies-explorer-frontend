@@ -9,7 +9,7 @@ function Register({ onRegisterButton, isLoading, changePreloaderStatus, requestE
 
   React.useEffect(() => {
     clearError();
-    resetForm({}, {}, true);
+    resetForm({}, {}, false);
     //eslint-disable-next-line
   }, [resetForm]);
 

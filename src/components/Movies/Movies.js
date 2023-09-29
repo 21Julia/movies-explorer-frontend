@@ -6,7 +6,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import MoviesAddButton from './MoviesAddButton/MoviesAddButton';
 import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
-import { footerClass, notFoundMoviesMessage } from '../../utils/constants';
+import { footerClass, notFoundMoviesMessage, WINDOW_WIDTH_XL, WINDOW_WIDTH_L, WINDOW_WIDTH_M, QUANTITY_MOVIES_INITIAL, QUANTITY_MOVIES_LARGE, QUANTITY_MOVIES_AVERAGE, QUANTITY_MOVIES_SMALL, QUANTITY_ADDED_MOVIES_INITIAL, QUANTITY_ADDED_MOVIES_LARGE, QUANTITY_ADDED_MOVIES_AVERAGE } from '../../utils/constants';
 
 function Movies({ loggedIn, foundMovies, visibleMovies, filter, savedMovies, setFoundMovies, openInitialMovies, onAddButton, isVisible, moviesRequestMessage, setMoviesRequestMessage, onBurgerButton, preloader, changePreloaderStatus, onCardLike, setIsVisible }) {
   const [ movieInput, setMovieInput ] = React.useState('');
@@ -17,6 +17,7 @@ function Movies({ loggedIn, foundMovies, visibleMovies, filter, savedMovies, set
   const [ quantityAddedMovies, setQuantityAddedMovies ] = React.useState(1);
 
   React.useEffect(() => {
+    setMoviesRequestMessage('');
     const savedValues = localStorage.getItem('inputText');
     setMovieInput(savedValues);
 
@@ -63,18 +64,18 @@ function Movies({ loggedIn, foundMovies, visibleMovies, filter, savedMovies, set
   function checkWidth() {
     const windowWidth = window.innerWidth;
 
-    if (windowWidth > 1279) {
-      setQuantity(16);
-      setQuantityAddedMovies(4);
-    } else if (windowWidth > 989) {
-      setQuantity(12);
-      setQuantityAddedMovies(3);
-    } else if (windowWidth > 767) {
-      setQuantity(8);
-      setQuantityAddedMovies(2);
+    if (windowWidth > WINDOW_WIDTH_XL) {
+      setQuantity(QUANTITY_MOVIES_INITIAL);
+      setQuantityAddedMovies(QUANTITY_ADDED_MOVIES_INITIAL);
+    } else if (windowWidth > WINDOW_WIDTH_L) {
+      setQuantity(QUANTITY_MOVIES_LARGE);
+      setQuantityAddedMovies(QUANTITY_ADDED_MOVIES_LARGE);
+    } else if (windowWidth > WINDOW_WIDTH_M) {
+      setQuantity(QUANTITY_MOVIES_AVERAGE);
+      setQuantityAddedMovies(QUANTITY_ADDED_MOVIES_AVERAGE);
     } else {
-      setQuantity(5);
-      setQuantityAddedMovies(2);
+      setQuantity(QUANTITY_MOVIES_SMALL);
+      setQuantityAddedMovies(QUANTITY_ADDED_MOVIES_AVERAGE);
     };
   };
 

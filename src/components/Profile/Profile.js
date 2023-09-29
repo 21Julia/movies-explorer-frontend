@@ -12,29 +12,44 @@ function Profile({ clearError, makeEditButtonActive, onSignOut, showError, chang
 
   React.useEffect(() => {
     clearError();
-    resetForm({name: currentUser.name, email: currentUser.email }, {}, true);
+    resetForm({name: currentUser.name, email: currentUser.email }, {}, false);
     //eslint-disable-next-line
   }, [resetForm]);
 
   function handleEditButtonClick() {
     makeEditButtonActive();
-  }
+  };
 
   function signOut() {
     onSignOut();
   };
 
+  function checkInputInformation(evt) {
+    clearError();
+    handleChange(evt);
+
+    if (evt.target.name === "name") {
+      if ((evt.target.value === currentUser.name) && (values.email === currentUser.email)) {
+        setIsValid(false);
+        showError();
+        return;
+      };
+    } else if (evt.target.name === "email") {
+      if ((values.name === currentUser.name) && (evt.target.value === currentUser.email)) {
+        setIsValid(false);
+        showError();
+        return;
+      };
+    };
+  };
+
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    if ((values.name === currentUser.name) && (values.email === currentUser.email)) {
-      setIsValid(false);
-      showError();
-      return;
-    }
-
     changePreloaderStatus();
     onEditButton(values);
+
+    setIsValid(false);
   };
 
   return (
@@ -50,13 +65,13 @@ function Profile({ clearError, makeEditButtonActive, onSignOut, showError, chang
             <fieldset className="profile__input-container">
               <div className="profile__input-field">
                 <label htmlFor="name-input" className="profile__input-label">Имя</label>
-                <input id="name-input" type="text" className={`profile__input ${errors.name ? profileInputErrorClass : ''}`} name="name" placeholder="Имя" minLength="2" maxLength="30" required pattern="([\-a-zA-Zа-яёА-ЯЁ0-9\s]{2,30})" value={values.name || ''} onChange={handleChange} disabled={isDisabled} />
+                <input id="name-input" type="text" className={`profile__input ${errors.name ? profileInputErrorClass : ''}`} name="name" placeholder="Имя" minLength="2" maxLength="30" required pattern="([\-a-zA-Zа-яёА-ЯЁ0-9\s]{2,30})" value={values.name || ''} onChange={checkInputInformation} disabled={isDisabled} />
                 <span className={`name-input-error profile__input-error ${isValid ? '' : profileInputMessageErrorClass}`}>{errors.name || ''}</span>
               </div>
               <div className="profile__line"></div>
               <div className="profile__input-field">
                 <label htmlFor="email-input" className="profile__input-label">E-mail</label>
-                <input id="email-input" type="email" className={`profile__input ${errors.email ? profileInputErrorClass : ''}`} name="email" placeholder="E-mail" required pattern="(([\-_.a-zA-Z0-9]+)@([\-a-zA-Z0-9]+)\.[a-z]{2,})" value={values.email || ''} onChange={handleChange} disabled={isDisabled} />
+                <input id="email-input" type="email" className={`profile__input ${errors.email ? profileInputErrorClass : ''}`} name="email" placeholder="E-mail" required pattern="(([\-_.a-zA-Z0-9]+)@([\-a-zA-Z0-9]+)\.[a-z]{2,})" value={values.email || ''} onChange={checkInputInformation} disabled={isDisabled} />
                 <span className={`name-input-error profile__input-error ${isValid ? '' : profileInputMessageErrorClass}`}>{errors.email || ''}</span>
               </div>
               {isDisabled ?

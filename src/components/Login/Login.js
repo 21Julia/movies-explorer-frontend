@@ -9,7 +9,7 @@ function Login({ onLoginButton, isLoading, changePreloaderStatus, requestError, 
 
   React.useEffect(() => {
     clearError();
-    resetForm({}, {}, true);
+    resetForm({}, {}, false);
     //eslint-disable-next-line
   }, [resetForm]);
 

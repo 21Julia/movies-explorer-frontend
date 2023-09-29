@@ -1,6 +1,6 @@
 import React from 'react';
 import './MoviesCard.css';
-import { savedMovieCardButtonClass } from '../../utils/constants';
+import { savedMovieCardButtonClass, durationOfHourLongMovie } from '../../utils/constants';
 
 function MoviesCard({ movie, savedMovies, buttonAriaLabel, onCardButton }) {
   const [ duration, setDuration ] = React.useState('');
@@ -28,12 +28,12 @@ function MoviesCard({ movie, savedMovies, buttonAriaLabel, onCardButton }) {
 
   function calculateDuration() {
     const movieDuration = movie.duration;
-    const hours = Math.floor(movieDuration / 60);
+    const hours = Math.floor(movieDuration / durationOfHourLongMovie);
 
-    if (movieDuration % 60 === 0) {
+    if (movieDuration % durationOfHourLongMovie === 0) {
       return setDuration(`${hours}ч`);
-    } else if (movieDuration > 60) {
-      const min = movieDuration - (hours * 60);
+    } else if (movieDuration > durationOfHourLongMovie) {
+      const min = movieDuration - (hours * durationOfHourLongMovie);
       return setDuration(`${hours}ч ${min}м`);
     } else {
       return setDuration(`${movie.duration}м`);

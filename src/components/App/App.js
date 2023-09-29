@@ -14,7 +14,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Preloader from '../Preloader/Preloader';
 import mainApi from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
-import { errorMessage, notFoundMoviesMessage, successRegistrationMessage, successUpdateMessage, updateProfileErrorMessage, badRequestLoginErrorMessage, unauthorizedErrorMessage, userAlreadyExistsMessage, serverErrorMessage } from '../../utils/constants';
+import { errorMessage, notFoundMoviesMessage, successRegistrationMessage, successUpdateMessage, updateProfileErrorMessage, badRequestLoginErrorMessage, unauthorizedErrorMessage, userAlreadyExistsMessage, serverErrorMessage, durationOfShortMovie } from '../../utils/constants';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function App() {
@@ -162,7 +162,6 @@ function App() {
       .then((initialMovies) => {
         localStorage.setItem('allMovies', JSON.stringify(initialMovies));
         setFoundMovies(filterAllMovies(initialMovies, value, switchState));
-        getSavedMovies();
         showErrorMessage();
       })
       .catch((err) => {
@@ -188,7 +187,7 @@ function App() {
       const duration = movie.duration;
 
       if (switchState) {
-        return ((duration <= 40) && (((ruName.includes(inputValue)) || (engName.includes(inputValue)))));
+        return ((duration <= durationOfShortMovie) && (((ruName.includes(inputValue)) || (engName.includes(inputValue)))));
       } else {
         return ((ruName.includes(inputValue)) || (engName.includes(inputValue)));
       }
@@ -294,7 +293,7 @@ function App() {
       handleCardDelete(movieForDelete);
     } else {
       mainApi.saveMovie(movie)
-        .then(() => getSavedMovies())
+        .then((movie) => setSavedMovies([...savedMovies, movie]))
         .catch(err => console.log(`Ошибка при сохранении фильма: ${err}`));
     };
   };
