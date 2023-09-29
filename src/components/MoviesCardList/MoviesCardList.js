@@ -2,10 +2,10 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ containerClass, moviesList, isSaved, savedMovies, cardButtonClass, buttonAriaLabel, onCardButton }) {
+function MoviesCardList({ moviesList, isSaved, savedMovies, cardButtonClass, buttonAriaLabel, onCardButton }) {
 
   return (
-    <section className={`cards ${containerClass}`}>
+    <section className="cards">
         <ul className="cards__list">
         {moviesList.map((movie, i) => (
           <MoviesCard

@@ -180,10 +180,6 @@ function App() {
       .catch(err => console.log(`Ошибка при загрузке сохранённых фильмов: ${err}`));
   };
 
-  function deleteSavedMovie(visibleMovies, movieForDelete) {
-
-  }
-
   function filter(movies, value, switchState) {
     return movies.filter((movie) => {
       const ruName = movie.nameRU.toLowerCase();
@@ -207,6 +203,23 @@ function App() {
     localStorage.setItem('switchButtonState', JSON.stringify(switchState));
 
     return filteredMovies;
+  };
+
+  function filterForSavedMovies(value, switchState) {
+    try {
+      const filteredMovies = filter(savedMovies, value, switchState);
+
+      if (filteredMovies.length === 0) {
+        setMoviesRequestMessage(notFoundMoviesMessage);
+      } else {
+        setMoviesRequestMessage('');
+        return filteredMovies;
+      };
+    } catch (err) {
+      setMoviesRequestMessage(errorMessage);
+    } finally {
+      setPreloader(false);
+    };
   };
 
   function showErrorMessage() {
@@ -238,24 +251,6 @@ function App() {
     };
   };
 
-  function filterForSavedMovies(value, switchState) {
-    try {
-      const filteredMovies = filter(savedMovies, value, switchState);
-
-      if (filteredMovies.length === 0) {
-        setMoviesRequestMessage(notFoundMoviesMessage);
-      } else {
-        setMoviesRequestMessage('');
-        return filteredMovies;
-      };
-    } catch (err) {
-      setMoviesRequestMessage(errorMessage);
-    } finally {
-      setPreloader(false);
-    };
-  };
-
-    // ФУНКЦИЯ ДЛЯ ОТОБРАЖЕНИЯ ПЕРВИЧНЫХ НАЙДЕННЫХ ФИЛЬМОВ
   function openInitialMovies(quantity) {
     if (foundMovies.length <= quantity) {
       return setVisibleMovies(foundMovies);
@@ -388,6 +383,7 @@ function App() {
                 changePreloaderStatus={changePreloaderStatus}
                 preloader={preloader}
                 moviesRequestMessage={moviesRequestMessage}
+                setMoviesRequestMessage={setMoviesRequestMessage}
             />}
           />
           <Route path="/profile"

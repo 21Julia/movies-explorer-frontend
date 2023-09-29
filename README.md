@@ -52,3 +52,4 @@ Backend https://api.jkmovies-explorer.nomoredomainsicu.ru
 ## Ссылки на пул реквест:
 
 level-3
+https://github.com/21Julia/movies-explorer-frontend/pull/2 

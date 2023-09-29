@@ -7,6 +7,7 @@ const profileInputMessageErrorClass = "profile__input-error_active";
 const searchFormInputErrorMessageClass = "search-form__input-error_active";
 const savedMovieCardButtonClass = "card__delete-button";
 const footerClass = "footer_margin_l";
+const footerClassXl = "footer_margin_xl"
 
 const errorMessage = "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз."
 
@@ -19,8 +20,7 @@ const unauthorizedErrorMessage = 'Вы ввели неправильный ло�
 const userAlreadyExistsMessage = 'Пользователь с таким email уже существует.';
 const serverErrorMessage = 'На сервере произошла ошибка.';
 
-// const MAIN_API_ADDRESS = 'https://api.jkmovies-explorer.nomoredomainsicu.ru';
-const MAIN_API_ADDRESS = 'http://localhost:4000';
+const MAIN_API_ADDRESS = 'https://api.jkmovies-explorer.nomoredomainsicu.ru';
 const MOVIES_API_ADDRESS = 'https://api.nomoreparties.co/beatfilm-movies';
 const MOVIES_API_ADDRESS_SHORT = 'https://api.nomoreparties.co';
 
@@ -28,4 +28,4 @@ const technologies = [
   "HTML", "CSS", "JS", "React", "Git", "Express.js", "mongoDB"
 ];
 
-export { inputActive, inputMargin, inputErrorClass, inputMessageErrorClass, profileInputErrorClass, profileInputMessageErrorClass, searchFormInputErrorMessageClass, savedMovieCardButtonClass, footerClass, errorMessage, notFoundMoviesMessage, successRegistrationMessage, successUpdateMessage, updateProfileErrorMessage, badRequestLoginErrorMessage, unauthorizedErrorMessage, userAlreadyExistsMessage, serverErrorMessage, technologies, MAIN_API_ADDRESS, MOVIES_API_ADDRESS, MOVIES_API_ADDRESS_SHORT };
+export { inputActive, inputMargin, inputErrorClass, inputMessageErrorClass, profileInputErrorClass, profileInputMessageErrorClass, searchFormInputErrorMessageClass, savedMovieCardButtonClass, footerClass, footerClassXl, errorMessage, notFoundMoviesMessage, successRegistrationMessage, successUpdateMessage, updateProfileErrorMessage, badRequestLoginErrorMessage, unauthorizedErrorMessage, userAlreadyExistsMessage, serverErrorMessage, technologies, MAIN_API_ADDRESS, MOVIES_API_ADDRESS, MOVIES_API_ADDRESS_SHORT };

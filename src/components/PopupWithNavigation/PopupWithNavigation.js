@@ -3,7 +3,6 @@ import './PopupWithNavigation.css';
 import Navigation from '../Header/Navigation/Navigation';
 
 function PopupWithNavigation({ isOpen, onClose, loggedIn }) {
-
   React.useEffect(() => {
     if (!isOpen) return;
 

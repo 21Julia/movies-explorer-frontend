@@ -5,30 +5,22 @@ import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
+import { footerClassXl } from '../../utils/constants';
 
-function SavedMovies({ loggedIn, onBurgerButton, getSavedMovies, savedMovies, onCardDelete, filter, changePreloaderStatus, moviesRequestMessage, preloader, foundSavedMovies }) {
+function SavedMovies({ loggedIn, onBurgerButton, getSavedMovies, savedMovies, onCardDelete, filter, changePreloaderStatus, moviesRequestMessage, setMoviesRequestMessage, preloader }) {
   const [ movieInput, setMovieInput ] = React.useState('');
   const [ isValid, setIsValid ] = React.useState(true);
   const [ isActiveSwitch, setIsActiveSwitch ] = React.useState(false);
+  const [ alreadySearched, setAlreadySearched ] = React.useState(false);
 
-  const [ visibleMovies, setVisibleMovies ] = React.useState(savedMovies);
+  const [ foundMovies, setFoundMovies ] = React.useState([]);
 
   React.useEffect(() => {
     getSavedMovies();
-    const latesSavedMovies = JSON.parse(localStorage.getItem('savedMovies'));
-    setVisibleMovies(latesSavedMovies);
+    setMoviesRequestMessage('');
+    setAlreadySearched(false);
     //eslint-disable-next-line
   }, []);
-
-  React.useEffect(() => {
-
-    visibleMovies.filter((movie) => {
-
-    })
-    const latesSavedMovies = JSON.parse(localStorage.getItem('savedMovies'));
-    setVisibleMovies(latesSavedMovies);
-    //eslint-disable-next-line
-  }, [onCardDelete]);
 
   function handleChange(evt) {
     setMovieInput(evt.target.value);
@@ -43,9 +35,9 @@ function SavedMovies({ loggedIn, onBurgerButton, getSavedMovies, savedMovies, on
     };
 
     changePreloaderStatus();
-
-    setVisibleMovies(filter(movieInput, switchState));
-  }
+    setAlreadySearched(true);
+    setFoundMovies(filter(movieInput, switchState));
+  };
 
   function handleSearchForm(evt) {
     search(evt, isActiveSwitch);
@@ -57,12 +49,11 @@ function SavedMovies({ loggedIn, onBurgerButton, getSavedMovies, savedMovies, on
     search(evt, !isActiveSwitch);
   };
 
-  // function handleDeleteButton() {
-  //   onCardDelete();
+  function handleMovieDeleteButton(movieForDelete) {
+    onCardDelete(movieForDelete);
 
-  //   const latesSavedMovies = JSON.parse(localStorage.getItem('savedMovies'));
-  //   setVisibleMovies(latesSavedMovies);
-  // }
+    setFoundMovies(foundMovies.filter((movie) => movie._id !== movieForDelete._id));
+  };
 
   return (
     <>
@@ -81,17 +72,16 @@ function SavedMovies({ loggedIn, onBurgerButton, getSavedMovies, savedMovies, on
         />
         {moviesRequestMessage && <p className="movies__message">{moviesRequestMessage}</p>}
         {preloader && <Preloader />}
-        {visibleMovies && !moviesRequestMessage &&
+        {!moviesRequestMessage &&
           <MoviesCardList
-            containerClass="cards_type_saved"
-            moviesList={visibleMovies}
+            moviesList={alreadySearched ? foundMovies : savedMovies}
             isSaved={true}
             buttonAriaLabel="Удалить"
-            onCardButton={onCardDelete}
+            onCardButton={handleMovieDeleteButton}
           />
         }
       </main>
-      <Footer />
+      <Footer footerClass={footerClassXl} />
     </>
   );
 };

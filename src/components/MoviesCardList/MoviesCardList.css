@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-.cards_type_saved {
-  margin-bottom: 319px;
-}
-
 .cards__list {
   max-width: 100%;
   display: grid;
@@ -24,10 +20,6 @@
 @media all and (max-width: 800px) {
   .cards {
     max-width: calc(100% - 60px);
-  }
-
-  .cards_type_saved {
-    margin-bottom: 230px;
   }
 
   .cards__list {
