@@ -1,12 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import './PageNotFound.css';
 
-function PageNotFound() {
+function PageNotFound({ verifyTokens }) {
   const navigate = useNavigate();
 
   function goBack() {
-    navigate(-1);
+    navigate(-1, {replace: true});
+    verifyTokens();
   }
 
   return (

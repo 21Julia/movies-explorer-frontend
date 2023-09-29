@@ -117,6 +117,7 @@
   font-size: 11px;
   line-height: 13.31px;
   color: #FF004C;
+  text-align: center;
 }
 
 .auth-form__error-message_active {

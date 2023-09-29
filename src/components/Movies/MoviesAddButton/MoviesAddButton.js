@@ -1,10 +1,10 @@
 import React from 'react';
 import './MoviesAddButton.css';
 
-function MoviesAddButton() {
+function MoviesAddButton({ onAddButton }) {
 
   return (
-    <button type="button" className="movies__add-button button" aria-label="Открыть ещё больше фильмов">
+    <button type="button" onClick={onAddButton} className="movies__add-button button" aria-label="Открыть ещё больше фильмов">
       Ещё
     </button>
   );

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 import Navigation from './Navigation/Navigation';
 
-function Header({ loggedIn, headerColorClass, iconColorClass, onBurgerButton }) {
+function Header({ loggedIn, onBurgerButton, headerColorClass, iconColorClass }) {
   return (
     <header className={`header ${headerColorClass}`}>
       <nav className="header__navigation">

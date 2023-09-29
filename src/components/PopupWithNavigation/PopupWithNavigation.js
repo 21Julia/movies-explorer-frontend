@@ -10,14 +10,14 @@ function PopupWithNavigation({ isOpen, onClose, loggedIn }) {
     function checkWidth() {
       if (window.innerWidth > 768) {
         onClose();
-      }
-    }
+      };
+    };
 
     window.addEventListener('resize', checkWidth);
 
     return () => {
-      window.removeEventListener('resize', checkWidth)
-    }
+      window.removeEventListener('resize', checkWidth);
+    };
   }, [isOpen, onClose])
 
   return (
