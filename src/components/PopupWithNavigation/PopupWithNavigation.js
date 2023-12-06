@@ -3,21 +3,20 @@ import './PopupWithNavigation.css';
 import Navigation from '../Header/Navigation/Navigation';
 
 function PopupWithNavigation({ isOpen, onClose, loggedIn }) {
-
   React.useEffect(() => {
     if (!isOpen) return;
 
     function checkWidth() {
       if (window.innerWidth > 768) {
         onClose();
-      }
-    }
+      };
+    };
 
     window.addEventListener('resize', checkWidth);
 
     return () => {
-      window.removeEventListener('resize', checkWidth)
-    }
+      window.removeEventListener('resize', checkWidth);
+    };
   }, [isOpen, onClose])
 
   return (

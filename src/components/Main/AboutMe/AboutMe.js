@@ -6,7 +6,7 @@ import Title from '../Title/Title';
 function AboutMe() {
   return (
     <section className="about-me">
-      <Title text="Студент"/>
+      <Title text="Студент" />
       <div className="about-me__info">
         <div className="about-me__description">
           <h3 className="about-me__name">Юлия</h3>

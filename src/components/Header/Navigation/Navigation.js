@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation({ isOpen, iconColorClass }) {
-
   return (
     <div className="navigation">
       <div className={`navigation__links ${isOpen && 'navigation__links_visible'}`}>

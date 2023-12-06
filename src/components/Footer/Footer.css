@@ -3,6 +3,14 @@
   margin: 0 auto;
 }
 
+.footer_margin_l {
+  margin-top: 159px;
+}
+
+.footer_margin_xl {
+  margin-top: 319px;
+}
+
 .footer__text {
   font-weight: 400;
   font-size: 13px;
@@ -47,6 +55,12 @@
   line-height: 15.73px;
   text-decoration: none;
   color: #fff;
+}
+
+@media all and (max-width: 800px) {
+  .footer_margin_xl {
+    margin-top: 230px;
+  }
 }
 
 @media all and (max-width: 768px) {

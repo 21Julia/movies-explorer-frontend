@@ -1,11 +1,11 @@
 import React from 'react';
 import './Footer.css';
 
-function Footer() {
+function Footer({ footerClass }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${footerClass}`}>
       <p className="footer__text">Учебный проект Яндекс.Практикум х BeatFilm.</p>
       <div className="footer__info">
         <p className="footer__year">&copy; {year}</p>

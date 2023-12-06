@@ -1,3 +1,24 @@
 .movies {
   min-width: 100%;
 }
+
+.movies__message {
+  max-width: calc(100% - 140px);
+  color: #fff;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+@media all and (max-width: 850px) {
+  .movies__message {
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media all and (max-width: 670px) {
+  .movies__message {
+    max-width: calc(100% - 20px);
+  }
+}

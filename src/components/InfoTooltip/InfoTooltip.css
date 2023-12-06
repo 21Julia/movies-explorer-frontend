@@ -1,0 +1,97 @@
+.infoTooltip-popup {
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.7s ease-in, opacity 0.7s ease-in;
+}
+
+.infoTooltip-popup_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.infoTooltip-popup__container {
+  position: relative;
+  min-width: 430px;
+  background: #2F2F2F;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 25px 3.5px #4061f2;
+}
+
+.infoTooltip-popup__close-button {
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  background: url(../../images/close-button.svg) center no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.infoTooltip-popup__registration-image {
+  margin: 60px auto 32px;
+  background-size: 120px;
+  min-width: 120px;
+  min-height: 120px;
+  border: none;
+  padding: 0;
+}
+
+.infoTooltip-popup__registration-image_type_success {
+  background: url(../../images/success.svg) center no-repeat;
+}
+
+.infoTooltip-popup__registration-image_type_fail {
+  background: url(../../images/fail.svg) center no-repeat;
+}
+
+.infoTooltip-popup__message {
+  color: #fff;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  max-width: 358px;
+  margin: 0 auto 60px;
+}
+
+@media all and (max-width: 530px) {
+  .infoTooltip-popup__close-button {
+    right: 0;
+    top: -36px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .infoTooltip-popup__container {
+    min-width: calc(100% - 38px);
+  }
+
+  .infoTooltip-popup__registration-image {
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+
+  .infoTooltip-popup__message {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 50px;
+    max-width: 244px;
+  }
+}
